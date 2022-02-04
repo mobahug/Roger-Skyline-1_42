@@ -216,3 +216,32 @@ adding more rules:
     
 [Check out for more details](https://www.tothenew.com/blog/fail2ban-port-80-to-protect-sites-from-dos-attacks/)
     
+Now we write rules to protect port 80 (http) (our future website from dos attacks)
+search for ```zoneminder````
+
+add: 
+    
+    # protect port 80 (HTTP)
+    
+    [http-get-dos]
+    
+    enabled = true
+    port = http, https
+    filter = http-get-dos
+    logpath = %(apache_error_log)s
+    maxentry = 300
+    findtime = 300
+    bantime = 600
+    action = iptables[name=HTTP, port=http, protocol=tcp]
+    
+Go to: ```/ect/fail2ban/filter.d/http-get-dos.conf```
+    
+Add:
+    
+    [Definition]
+    
+    failregex = ^ -.*GET
+    ignoreregex =
+    
+ [For more detail](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
+    [and also this](https://docs.python.org/2/library/re.html)
