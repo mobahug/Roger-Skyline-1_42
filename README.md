@@ -18,7 +18,8 @@ From ***partition part*** choose ***manual*** and from there `SCSI3 (0,0,0) (sda
 
 Create new partition:
 
-    primal size of `4.2 GB´
+    primal size of 4.2 GB
+
 on the root
 
 and
