@@ -1,4 +1,4 @@
-### V.1 VM Part
+# V.1 VM Part
 
 First we need to download and install a ***hypervisor*** of our choice.
 I choosed [VirtualBox](https://www.virtualbox.org/wiki/Downloads). (newest version)
@@ -32,19 +32,20 @@ then
 
 After this left everything as default for minimal black & white environment
 
-### V.2 Network and Security Part
+# V.2 Network and Security Part
 
 ## You must create a non-root user to connect to the machine and work.
 
-  Non-root user login was created when we seted up the OS. just log in.
-  However if need to add another ***superuser***
-    Go to root
+Non-root user login was created when we seted up the OS. just log in.
+However if need to add another ***superuser***
+
+Go to root
     adduser <username>
     usermod -aG sudo <username>
 
 ## Use sudo, with this user, to be able to perform operation requiring special rights.
   
-    Go to root:
+Go to root:
   
 ```
 $ sudo apt update -y
@@ -52,8 +53,8 @@ $ sudo apt upgrade -y
 $ apt install sudo vim -y
 ```
 
-    log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
-    initialize the user to be able to make all kind of changes.
+log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
+initialize the user to be able to make all kind of changes.
     
 ```
 $ /etc
@@ -66,18 +67,16 @@ so:
 
 `<username>  ALL=(ALL:ALL) ALL`
 
-## We don’t want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
+## We don't want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
     
-    We have to change first the network configuration so go to:
+We have to change first the network configuration so go to:
     
-         1. ***Virtual Box settings***
-         2. ***Network***
-         3. ***Attached to***
-         4. ***Choose`Bridged Adapter`***
+    1. ***Virtual Box settings***
+    2. ***Network***
+    3. ***Attached to***
+    4. ***ChooseBridged Adapter***
     
-    By default we don't have ***ifconfig*** so we can [get](https://www.how2shout.com/linux/install-ifconfigon-debian-11-or-10-if-command-not-found/) it.
-    
-    
-    
+By default we don't have ifconfig so we can [get](https://www.how2shout.com/linux/install-ifconfigon-debian-11-or-10-if-command-not-found/) it.
+
     
     
