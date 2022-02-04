@@ -85,12 +85,14 @@ Delete everything from under the ```# The primary network interface```
 
 replace with ```auto enp0s3```
     
-After this we have to create a file called ``ènp0s3```in ```/etc/network/interfaces.d/```
+After this we have to create a file called ``enp0s3```in ```/etc/network/interfaces.d/```
 here we write
+
         iface enp0s3 inet static
                 adress 10.11.1.200 (choosend ip under same subnet, i choosed 200)
                 netmask 255.255.255.252 (/30)
                 gateway 10.11.254.254
 
 Now we have to restart the service:
-    $ sudo service networking restart (stay in the same dir)
+
+        $ sudo service networking restart (stay in the same dir)
