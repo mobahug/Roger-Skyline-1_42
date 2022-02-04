@@ -64,21 +64,18 @@ $ sudo vim sudoers
     add your user to `# User privilage specification´
 so:
 
-```
-<username>  ALL=(ALL:ALL) ALL
-```
+`<username>  ALL=(ALL:ALL) ALL`
 
-## We don’t want you to use the DHCP service of your machine. You’ve got to
-## configure it to have a static IP and a Netmask in \30.
+## We don’t want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
     
     We have to change first the network configuration so go to:
     
          1. ***Virtual Box settings***
          2. ***Network***
          3. ***Attached to***
-         4. ***Choose`Bridged Adapter***
+         4. ***Choose`Bridged Adapter`***
     
-    By default we don't have ***ifconfig*** so we can get(https://www.how2shout.com/linux/install-ifconfigon-debian-11-or-10-if-command-not-found/) it.
+    By default we don't have ***ifconfig*** so we can [get](https://www.how2shout.com/linux/install-ifconfigon-debian-11-or-10-if-command-not-found/) it.
     
     
     
