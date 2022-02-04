@@ -102,3 +102,14 @@ Command ***ifconfig*** to make sure the changes has been made.
 ## You have to change the default port of the SSH service by the one of your choice.
 SSH access HAS TO be done with publickeys. SSH root access SHOULD NOT
 be allowed directly, but with a user who can be root.
+    
+First we need to [go](https://www.cyberciti.biz/faq/howto-change-ssh-port-on-linux-or-unix-server/) to ```/etc/ssh/sshd_config```
+    
+    $ sudo vim /etc/ssh/sshd_config
+    
+Chnage line ```# Port 22```
+   
+    Comment it out and choose port between 49152 - 65535 ([Check out](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) IANA)
+    "Dynamic ports—Ports in the range 49152 to 65535 are not assigned, controlled, or registered. They are used for temporary or private ports. They are also known as private or non-reserved ports. Clients should choose ephemeral port numbers from this range, but many systems do not."
+    
+    I choosed Port 55556
