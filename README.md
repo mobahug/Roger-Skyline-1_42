@@ -243,5 +243,5 @@ Add:
     failregex = ^ -.*GET
     ignoreregex =
     
- [For more detail](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
+ [For more detail check out](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
     [and also this](https://docs.python.org/2/library/re.html)
