@@ -53,17 +53,15 @@ Go to root:
 
 log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
 initialize the user to be able to make all kind of changes.
-    
-```
-$ /etc
-$ sudo chmod +w sudoers
-$ sudo vim sudoers
-```
+    $ /etc
+    $ sudo chmod +w sudoers
+    $ sudo vim sudoers
 
-    add your user to `# User privilage specification´
+add your user to ***# User privilage specification***
+
 so:
 
-`<username>  ALL=(ALL:ALL) ALL`
+```<username>  ALL=(ALL:ALL) ALL`
 
 ## We don't want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
     
