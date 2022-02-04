@@ -19,16 +19,17 @@ From ***partition part*** choose ***manual*** and from there `SCSI3 (0,0,0) (sda
 Create new partition:
 
     primal size of `4.2 GB´
-    on the root
+on the root
 
 and
 
-    extend(logical) `<choosable withing what you have left from 8Gib>`
-    on /home dir
+    extend(logical) <choosable withing what you have left from 8Gib>
+
+on /home dir
     
 then
 
-`Finish partitioning and choose write changes to disk`
+    Finish partitioning and choose write changes to disk
 
 After this left everything as default for minimal black & white environment
 
@@ -46,12 +47,9 @@ Go to root
 ## Use sudo, with this user, to be able to perform operation requiring special rights.
   
 Go to root:
-  
-```
-$ sudo apt update -y
-$ sudo apt upgrade -y
-$ apt install sudo vim -y
-```
+    $ sudo apt update -y
+    $ sudo apt upgrade -y
+    $ apt install sudo vim -y
 
 log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
 initialize the user to be able to make all kind of changes.
