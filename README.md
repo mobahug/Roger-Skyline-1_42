@@ -76,9 +76,13 @@ By default we don't have ifconfig so we can [get](https://www.how2shout.com/linu
 
 Check with ***ifconfig*** what is our name of our bridge adapter.
 
-To make static IP simply [go](https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux) to: ```/etc/network/interfaces```
+To make static IP simply [go](https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux) to: 
+    /etc/network/interfaces
+
 Also remember to give ***write*** permission to be able to modify the file.
+
 Delete everything from under the ```# The primary network interface```
+
 replace with ```auto enp0s3```
     
     
