@@ -107,7 +107,8 @@ First we need to [go](https://www.cyberciti.biz/faq/howto-change-ssh-port-on-lin
     
     $ sudo vim /etc/ssh/sshd_config
     
-Chnage line ```# Port 22```
+Change line ```# Port 22```
+
 [Check out](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) IANA.
    
     Comment it out and choose port between 49152 - 65535 
@@ -117,3 +118,33 @@ They are used for temporary or private ports. They are also known as private or 
 Clients should choose ephemeral port numbers from this range, but many systems do not."
     
     I choosed Port 55556
+    
+Now we restarting our sshd service so:
+    
+    $ sudo service sshd restart
+    
+login with ssh and it's ask will you create an ECDSA key "yes"
+    
+    $ sudo ssh magic@10.11.1.200 -p 55557 (on VM terminal)
+    
+Make sure the connecion is active
+    
+    $ sudo systemctl status ssh
+    
+If you work on school computer then you might already have RSA key so don't need to re-create,
+
+However if you do not have then:
+    
+    # host/computer terminal
+    
+    $ ssh-keygen -t rsa
+    
+Now on your own computer log in to the VM:
+    
+    $ ssh magic@10.11.1.200 -p 55557
+    $ exit (logout from connection)
+    
+The next step is super important to keep secure our system:
+    
+    
+    
