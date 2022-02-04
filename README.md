@@ -191,8 +191,28 @@ For different type of attack has been created different kind of security service
 We gonna use
     
 [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban), to secure our server
+    
 [iptables](https://en.wikipedia.org/wiki/Iptables), to configure and filter out dangerous IPs
+    
 [apache2](https://www.hostinger.com/tutorials/what-is-apache), to deploy our website in the comming task
     
     
 ```$ sudo apt install iptables fail2ban apache2```
+    
+After the installation we make a copy from jail.conf file to jail.local
+
+The reason is that, beacuse with upgrades it might be modified so we want to keep the present one to keep our changes.
+    
+    $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+    $ sudo vim /etc/fail2ban/fail2ban.local
+    
+Here we scroll down or write to the search bar (:/sshd) to locate ```# SSH servers```.
+    
+adding more rules: 
+    
+    enable = true
+    maxentry = 3
+    bantime = 600
+    
+[Check out for more details](https://www.tothenew.com/blog/fail2ban-port-80-to-protect-sites-from-dos-attacks/)
+    
