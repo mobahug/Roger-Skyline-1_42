@@ -99,6 +99,6 @@ Now we have to restart the service:
     
 Command ***ifconfig*** to make sure the changes has been made.
 
-##You have to change the default port of the SSH service by the one of your choice.
+## You have to change the default port of the SSH service by the one of your choice.
 SSH access HAS TO be done with publickeys. SSH root access SHOULD NOT
 be allowed directly, but with a user who can be root.
