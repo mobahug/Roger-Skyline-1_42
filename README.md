@@ -44,13 +44,23 @@ After this left everything as default for minimal black & white environment
 
 ##Use sudo, with this user, to be able to perform operation requiring special rights.
   
-  Go to root:
+    Go to root:
   
-  ```
-  sudo apt update -y
-  sudo apt upgrade -y
-  apt install sudo vim -y
-  
-  
+```
+$ sudo apt update -y
+$ sudo apt upgrade -y
+$ apt install sudo vim -y
+```
+    log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
+    initialize the user to be able to make all kind of changes.
     
+´´´
+$ /etc
+$ sudo chmod +w sudoers
+$ sudo vim sudoers
+´´´
+    add your user to `# User privilage specification´
+so:
+´´´
+<username>  ALL=(ALL:ALL) ALL
 
