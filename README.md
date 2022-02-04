@@ -190,9 +190,9 @@ of your VM.
 For different type of attack has been created different kind of security services
 We gonna use
     
-    [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban), to secure our server
-    [iptables](https://en.wikipedia.org/wiki/Iptables), to configure and filter out dangerous IPs
-    [apache2](https://www.hostinger.com/tutorials/what-is-apache) to deploy our website in the comming task
+[Fail2ban](https://en.wikipedia.org/wiki/Fail2ban), to secure our server
+[iptables](https://en.wikipedia.org/wiki/Iptables), to configure and filter out dangerous IPs
+[apache2](https://www.hostinger.com/tutorials/what-is-apache), to deploy our website in the comming task
     
     
 ```$ sudo apt install iptables fail2ban apache2```
