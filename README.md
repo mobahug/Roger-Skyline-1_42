@@ -34,7 +34,7 @@ After this left everything as default for minimal black & white environment
 
 ### V.2 Network and Security Part
 
-##You must create a non-root user to connect to the machine and work.
+## You must create a non-root user to connect to the machine and work.
 
   Non-root user login was created when we seted up the OS. just log in.
   However if need to add another ***superuser***
@@ -42,7 +42,7 @@ After this left everything as default for minimal black & white environment
     adduser <username>
     usermod -aG sudo <username>
 
-##Use sudo, with this user, to be able to perform operation requiring special rights.
+## Use sudo, with this user, to be able to perform operation requiring special rights.
   
     Go to root:
   
@@ -51,6 +51,7 @@ $ sudo apt update -y
 $ sudo apt upgrade -y
 $ apt install sudo vim -y
 ```
+
     log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
     initialize the user to be able to make all kind of changes.
     
@@ -59,8 +60,20 @@ $ /etc
 $ sudo chmod +w sudoers
 $ sudo vim sudoers
 ´´´
+
     add your user to `# User privilage specification´
 so:
+
 ´´´
 <username>  ALL=(ALL:ALL) ALL
+´´´
 
+## We don’t want you to use the DHCP service of your machine. You’ve got to
+configure it to have a static IP and a Netmask in \30.
+    
+    
+    
+    
+    
+    
+    
