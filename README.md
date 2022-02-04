@@ -108,8 +108,12 @@ First we need to [go](https://www.cyberciti.biz/faq/howto-change-ssh-port-on-lin
     $ sudo vim /etc/ssh/sshd_config
     
 Chnage line ```# Port 22```
+[Check out](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) IANA.
    
-    Comment it out and choose port between 49152 - 65535 ([Check out](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) IANA)
-    "Dynamic ports—Ports in the range 49152 to 65535 are not assigned, controlled, or registered. They are used for temporary or private ports. They are also known as private or non-reserved ports. Clients should choose ephemeral port numbers from this range, but many systems do not."
+    Comment it out and choose port between 49152 - 65535 
+    
+"Dynamic ports—Ports in the range 49152 to 65535 are not assigned, controlled, or registered.
+They are used for temporary or private ports. They are also known as private or non-reserved ports.
+Clients should choose ephemeral port numbers from this range, but many systems do not."
     
     I choosed Port 55556
