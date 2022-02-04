@@ -126,7 +126,7 @@ Now we restarting our sshd service so:
     
 login with ssh and it's ask will you create an ECDSA key "yes"
     
-    $ sudo ssh magic@10.11.1.200 -p 55557 (on VM terminal)
+    $ sudo ssh magic@10.11.1.200 -p 55556 (on VM terminal)
     
 Make sure the connecion is active
     
@@ -142,7 +142,7 @@ However if you do not have then:
     
 Now on your own computer log in to the VM:
     
-    $ ssh magic@10.11.1.200 -p 55557
+    $ ssh magic@10.11.1.200 -p 55556
     $ exit (logout from connection)
     
 The next step is super important to keep secure our system:
@@ -172,4 +172,14 @@ Installing and activating the firewall:
     $ sudo apt install ufw
     $ sudo ufw status
     $ sudo ufw enable
+    
+now that we installed our [Firewall](https://opensource.com/article/18/9/linux-iptables-firewalld) we need to [allow](https://help.ubuntu.com/community/UFW) for our port to be able to go through, also for later the optional task we gonna need http services.
+    
+    $ sudo ufw allow 55556/tcp
+    $ sudo ufw allow 80/tcp
+    $ sudo ufw allow 442/tcp
+    
+now if we check the firewall status we can see these ports are allowed
+    
+    $ sudo ufw status
     
