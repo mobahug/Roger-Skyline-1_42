@@ -61,7 +61,7 @@ add your user to ***# User privilage specification***
 
 so:
 
-```<username>  ALL=(ALL:ALL) ALL`
+```<username>  ALL=(ALL:ALL) ALL```
 
 ## We don't want you to use the DHCP service of your machine. You’ve got to configure it to have a static IP and a Netmask in \30.
     
