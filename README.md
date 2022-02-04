@@ -145,6 +145,23 @@ Now on your own computer log in to the VM:
     $ exit (logout from connection)
     
 The next step is super important to keep secure our system:
+
+Otherwise this could be a hall where hackers could get in easily and modify/delete services, take important datas away
     
+    [Disable ssh login for root user](https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user)
+    $ /etc/ssh/sshd_config
+    change # PermitRootLogin Yes
+    to PermitRootLogin No
+    commented out
     
+## You have to set the rules of your firewall on your server only with the services used
+outside the VM.
+    
+For this we use ```ufw``` (Uncomplicated FireWall)
+
+Installing and activating the firewall:
+    
+    $ sudo apt install ufw
+    $ sudo ufw status
+    $ sudo ufw enable
     
