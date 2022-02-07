@@ -434,6 +434,17 @@ now if you go to root and execute ```mutt```it should be visible the message wha
 [Useful link](https://www.cmsimike.com/blog/2011/10/30/setting-up-local-mail-delivery-on-ubuntu-with-postfix-and-mutt/)
         
         
+## Finally
+        
+To create a checksum go to your ***goinfre*** (on the real computer) file where you installed Debian and create the checksum:
+        
+        $ shasum < Debian.vdi
+                             
+it might take awhile...
+                          
+after that save the long code what you got to a textfile or something to store it.
+                             
+        051ab4f5dce7ef5d0c94f66dea7d072cb51f99c6
         
         
         
