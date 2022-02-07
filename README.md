@@ -388,4 +388,52 @@ then we update our aliases file
 
     $ sudo newaliases
     
-    
+Now we have to tell for postfix where to deliver the sent mails
+        
+    $ sudo postconf -e "home_mailbox" = mail/
+        
+Restart postfix service to initialize the changes
+        
+    $ sudo service postfix restart
+        
+Now we install mutt our mail client ([What's that?](https://www.thegeekdiary.com/how-to-install-and-configure-mutt-in-centos-rhel/))
+        
+    $ sudo apt install mutt
+        
+then configure mutt to know where our email will be delivered to and what kind of mailbox it will be:
+go to root ***sudo su***
+        
+    $ sudo vim .muttrc
+        
+then
+        
+    set mbox_type=Maildir
+    set folder="/root/mail"
+    set mask="!^\\.[^.]"
+    set mbox="/root/mail"
+    set record="+.Sent"
+    set postponed="+.Drafts"
+    set spoolfile="/root/mail"
+        
+now log back to your superuser and execute ```mutt``` and say ```yes```
+
+then
+        
+        enter ***m***
+        write subject
+        write message
+        ctrl/command + o -> enter -> ctr/command + x
+        and hit ***y*** to send the message
+        
+you can also write in command all these:
+       
+     $ echo "message" | sudo mail -s "subject" root@debian.ghorvath
+        
+now if you go to root and execute ```mutt```it should be visible the message what user sent
+        
+     [Useful link](https://www.cmsimike.com/blog/2011/10/30/setting-up-local-mail-delivery-on-ubuntu-with-postfix-and-mutt/)
+        
+        
+        
+        
+        
