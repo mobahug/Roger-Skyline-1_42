@@ -431,7 +431,7 @@ you can also write in command all these:
         
 now if you go to root and execute ```mutt```it should be visible the message what user sent
         
-     [Useful link](https://www.cmsimike.com/blog/2011/10/30/setting-up-local-mail-delivery-on-ubuntu-with-postfix-and-mutt/)
+[Useful link](https://www.cmsimike.com/blog/2011/10/30/setting-up-local-mail-delivery-on-ubuntu-with-postfix-and-mutt/)
         
         
         
