@@ -60,6 +60,8 @@ initialize the user to be able to make all kind of changes.
 
 add your user to ***# User privilage specification***
 
+here we giving for our user the ```sudo```, superuser accessability
+    
 so:
 
 ```<username>  ALL=(ALL:ALL) ALL```
@@ -332,4 +334,12 @@ then:
     
 In the cron service you will find also a small guide how to use it as well.
     
-[Useful link](https://crontab.guru/#0_4_*_*_MON), and also [this](https://phoenixnap.com/kb/crontab-reboot)
+[Useful link](https://crontab.guru/#0_4_*_*_MON), and also [this](https://phoenixnap.com/kb/crontab-reboot).
+    
+## Make a script to monitor changes of the /etc/crontab file and sends an email to
+root if it has been modified. Create a scheduled script task every day at midnight.
+    
+
+    
+    
+    
