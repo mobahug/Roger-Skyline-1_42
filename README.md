@@ -339,7 +339,53 @@ In the cron service you will find also a small guide how to use it as well.
 ## Make a script to monitor changes of the /etc/crontab file and sends an email to
 root if it has been modified. Create a scheduled script task every day at midnight.
     
-
+    $ sudo touch cron_checker.sh
     
+then:
+    
+    #!/bin/bash
+    sudo touch /home/magic/cron_md5
+    sudo chmod 777 /home/magic/cron_md5
+    m1="$(md5sum '/etc/crontab' | awk '{print $1}')"
+    m2="$(cat '/home/magic/cron_md5')"
+    echo ${m1}
+    echo ${m2}
+    if [ "$m1 != $m2" ] ; then
+        md5sum /etc/crontabs | awk '{print $1}' > /home/magic/cron_md5
+        echo "KO" | mail -s "Cronfile updated" root@debian.lan
+    fi
+    
+    now that we have our scripts we also have to tell that for ***cron*** to do it:
+    
+        0 0 * * * /home/magic/cron_checker.sh &
+    
+after that we have to install our [emailing](https://packages.debian.org/fi/sid/bsd-mailx) service:
+    
+    $ sudo apt install bsd-mailx
+    
+after that we got our emailing commands we also need a service which forwarding that:
+    
+    $ sudo apt install postfix
+    
+During the installation will pop-up a window where you can choose the type of setup.
+    
+    Select ***Local only***
+    Root and postmaster mail recipient: ***root@debian***
+    
+ Now we gonna edit our aliases so we can send, get email from users to the root
+    
+    /etc/aliases
+    
+chnage:
+    
+    <username>: root
+        
+to:
+        
+    root: root
+        
+then we update our aliases file
+
+    $ sudo newaliases
     
     
