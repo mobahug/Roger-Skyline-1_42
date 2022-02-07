@@ -302,4 +302,33 @@ all the services [you will find](https://linuxhint.com/disable_unnecessary_servi
     
     $ ls /etc/init.d
     
+example I don't need console setup, because that's just responsible for fonts size etc.. so with disable i m gonna delete it:
+    
+    $ sudo systemctl disable console-setup.service
+    
+## Create a script that updates all the sources of package, then your packages and
+which logs the whole in a file named /var/log/update_script.log. Create a scheduled
+task for this script once a week at 4AM and every time the machine reboots.
+    
+    $ sudo touch update.sh
+    $ sudo chmod a+x update.sh
 
+in the update.sh to keep updating everything:
+    
+    sudo apt update -y >> /var/log/update_script.log
+    sudo apt upgrade -y >> /var/log/update_script.log
+    
+so in the shell file we telling where to keep the logs from the updates
+And now we tell for cron ```when``` to do these tasks.
+So open crontab in edit mode:
+    
+    $ sudo crontab -e
+    
+write:
+    
+    @reboot /home/magic/update.sh &
+    0 4 * * MON /home/magic/update.sh &
+    
+In the cron service you will find also a small guide how to use it as well.
+    
+    
