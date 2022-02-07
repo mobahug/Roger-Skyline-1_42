@@ -296,4 +296,8 @@ now you can check to make sure it is running and active:
     
 ## Stop the services you don’t need for this project.
     
+all the services [you will find](https://linuxhint.com/disable_unnecessary_services_debian_linux/) in ```/etc/init.d```
+    
+    $ ls /etc/init.d
+    
 
