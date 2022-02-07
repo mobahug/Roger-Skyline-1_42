@@ -245,3 +245,55 @@ Add:
     
  [For more detail check out](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
     [and also this](https://docs.python.org/2/library/re.html)
+    
+after you made the changes we need to restart the firewall:
+    
+    $ sudo ufw reload
+    $ sudo service fail2ban restart
+    
+now you make sure everything is setted up so:
+    
+    $ sudo fail2ban-client status
+    
+## You have to set a protection against scans on your VM’s open ports.
+    
+    $ sudo apt install portsentry
+    
+After the installation, edit the file ```/etc/default/portsentry```.
+So add +a (advance):
+    
+    TCP_MODE="atcp"
+    UDP_MODE="audp"
+    
+We also wish that portsentry is a blockage. We therefore need to activate it by passing BLOCK_UDP and BLOCK_TCP to 1 as below :
+```/etc/portsentry/portsentry.conf```
+    
+    ##################
+    # Ignore Options #
+    ##################
+    # 0 = Do not block UDP/TCP scans.
+    # 1 = Block UDP/TCP scans.
+    # 2 = Run external command only (KILL_RUN_CMD)
+
+    BLOCK_UDP="1"
+    BLOCK_TCP="1"
+    
+Now comment out every comment which starting with "KILL_ROUTE" except this one:
+    
+    KILL_ROUTE="/sbin/iptables -I INPUT -s $TARGET$ -j DROP"
+    
+for veryfication:
+    
+    cat portsentry.conf | grep KILL_ROUTE | grep -v "#"
+    
+restart the portsentry service so it will start to blocking port scans:
+    
+    $ sudo /etc/init.d/portsentry start
+    
+now you can check to make sure it is running and active:
+    
+    $ sudo service portsentry status
+    
+## Stop the services you don’t need for this project.
+    
+
