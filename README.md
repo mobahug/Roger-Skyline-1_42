@@ -294,6 +294,8 @@ now you can check to make sure it is running and active:
     
     $ sudo service portsentry status
     
+[How to protect against the scan of ports with portsentry](https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsentry)
+    
 ## Stop the services you don’t need for this project.
     
 all the services [you will find](https://linuxhint.com/disable_unnecessary_services_debian_linux/) in ```/etc/init.d```
