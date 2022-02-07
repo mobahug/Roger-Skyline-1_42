@@ -318,17 +318,18 @@ in the update.sh to keep updating everything:
     sudo apt update -y >> /var/log/update_script.log
     sudo apt upgrade -y >> /var/log/update_script.log
     
-so in the shell file we telling where to keep the logs from the updates
+So in the shell file we telling where to keep the logs from the updates.
+We created also for all these logs for it's own ***update_scripts.log*** file.
 And now we tell for cron ```when``` to do these tasks.
 So open crontab in edit mode:
     
     $ sudo crontab -e
     
-write:
+then:
     
     @reboot /home/magic/update.sh &
     0 4 * * MON /home/magic/update.sh &
     
 In the cron service you will find also a small guide how to use it as well.
     
-    
+[Useful link](https://crontab.guru/#0_4_*_*_MON), and also [this](https://phoenixnap.com/kb/crontab-reboot)
