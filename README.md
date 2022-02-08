@@ -235,7 +235,9 @@ add:
     action = iptables[name=HTTP, port=http, protocol=tcp]
     
 Go to: ```/ect/fail2ban/filter.d/http-get-dos.conf```
+
 This gonna be our filter, which will filter out the attacks, so via this keep the server ports secured. 
+
 Add:
     
     [Definition]
@@ -243,8 +245,8 @@ Add:
     failregex = ^ -.*GET
     ignoreregex =
     
- [For more detail check out](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
-    [and also this](https://docs.python.org/2/library/re.html), [and this](https://gist.github.com/SamStudio8/92507ad3e317edb9b869c20bb2623fcf)
+ [For more detail check out this](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
+    [,this](https://docs.python.org/2/library/re.html), [and this of course.](https://gist.github.com/SamStudio8/92507ad3e317edb9b869c20bb2623fcf)
     
 after you made the changes we need to restart the firewall:
     
