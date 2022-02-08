@@ -92,8 +92,8 @@ After this we have to create a file called ```enp0s3```in ```/etc/network/interf
 here we write
 
         iface enp0s3 inet static
-                adress 10.11.1.200 (choosend ip under same subnet, i choosed 200)
-                netmask 255.255.255.252 (/30)
+                adress 10.11.1.200 #(choosend ip under same subnet, i choosed 200)
+                netmask 255.255.255.252 #(/30)
                 gateway 10.11.254.254
 
 Now we have to restart the service:
