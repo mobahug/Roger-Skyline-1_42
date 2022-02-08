@@ -235,7 +235,7 @@ add:
     action = iptables[name=HTTP, port=http, protocol=tcp]
     
 Go to: ```/ect/fail2ban/filter.d/http-get-dos.conf```
-    
+This gonna be our filter, which will filter out the attacks, so via this keep the server ports secured. 
 Add:
     
     [Definition]
