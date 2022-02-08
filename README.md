@@ -244,7 +244,7 @@ Add:
     ignoreregex =
     
  [For more detail check out](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
-    [and also this](https://docs.python.org/2/library/re.html)
+    [and also this](https://docs.python.org/2/library/re.html), [and this](https://gist.github.com/SamStudio8/92507ad3e317edb9b869c20bb2623fcf)
     
 after you made the changes we need to restart the firewall:
     
