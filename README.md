@@ -512,7 +512,26 @@ Now we enable all the chnages in apache2 service to activate the SSL certificati
 [Useful link2](https://stackoverflow.com/questions/51537084/i-installed-apache-2-but-in-sudo-ufw-app-list-there-is-no-apache-applications-in)
 [Useful link3]()
         
-## Finally
+        
+# VI.2 Deployment Part
+        
+## Propose a functional solution for deployment automation.
+        
+Here I made a simple deploy.sh script on my user's root which will email to root if changes in the html code happend, and its also make a backup from that.
+        
+so i put my website source files into ```/var/www/html```
+        
+and created a ```temp``` directory where i copied the same ***index.html*** file.
+        
+        #!/bin/bash
+        DIFF=$(diff /var/www/temp/index.html /var/www/html/index.html)
+        if [ "$DIFF" != "" ]; then
+            cat /var/www/html/index.html > /var/www/temp/index.html
+            sudo cp /var/www/temp/index.html /var/www/html/index.html
+            echo "index.html has been changed modyfied!" | mail -s "Deployment done!" root
+        fi
+        
+# Finally
         
 To create a checksum go to your ***goinfre*** (on the real computer) file where you installed Debian and create the checksum:
         
@@ -523,6 +542,17 @@ it might take awhile...
 after that save the long code what you got to a textfile or something to store it.
                              
         051ab4f5dce7ef5d0c94f66dea7d072cb51f99c6
+                             
+                             
+Useful tipp: if you can't log back got to:
+            
+          $ sudo nano /etc/hosts.deny
+            
+Delete your IP adress, then go to:
+            
+          $ sudo nano /etc/hosts.allow
+            
+Here you write your local machine's IP adress so when you log in it will always accept your local machine.
         
         
         
