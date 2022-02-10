@@ -523,6 +523,8 @@ so i put my website source files into ```/var/www/html```
         
 and created a ```temp``` directory where i copied the same ***index.html*** file.
         
+deploy.sh file:
+        
         #!/bin/bash
         DIFF=$(diff /var/www/temp/index.html /var/www/html/index.html)
         if [ "$DIFF" != "" ]; then
@@ -530,6 +532,10 @@ and created a ```temp``` directory where i copied the same ***index.html*** file
             sudo cp /var/www/temp/index.html /var/www/html/index.html
             echo "index.html has been changed modyfied!" | mail -s "Deployment done!" root
         fi
+        
+after this we also have to tell for crontab to keep us updated so we giving for him a new task:
+        
+        0 0 * * *  /home/magic/deploy.sh
         
 # Finally
         
