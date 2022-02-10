@@ -559,6 +559,8 @@ Delete your IP adress, then go to:
           $ sudo nano /etc/hosts.allow
             
 Here you write your local machine's IP adress so when you log in it will always accept your local machine.
+                             
+          $ ALL: <Virtual_virtual_machine_ip_adress>   :   ALLOW
         
         
         
