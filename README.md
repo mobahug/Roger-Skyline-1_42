@@ -433,6 +433,84 @@ now if you go to root and execute ```mutt```it should be visible the message wha
         
 [Useful link](https://www.cmsimike.com/blog/2011/10/30/setting-up-local-mail-delivery-on-ubuntu-with-postfix-and-mutt/)
         
+
+# VI.1 Web Part
+        
+## You have to set a web server who should BE available on the VM’s IP or an host
+(init.login.com for exemple). About the packages of your web server, you can choose
+between Nginx and Apache. You have to set a self-signed SSL on all of your services.
+You have to set a web "application" from those choices:
+        
+        A login page.
+        A display site.
+        A wonderful website that blow our minds.
+
+I made earlier as a side project a small recipe-app to practice CSS, HTML and JavaScript so I decided I will use that.
+        
+First we need to generate a self signed SSL certification.
+        
+        sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+        
+After tha we need to create the configuration of the certification, so go to ```/etc/apache2/conf-available/```
+        
+       sudo touch ssl-params.conf
+
+I used this template as a general certification what i found on the internet:
+        
+        SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+        SSLProtocol All -SSLv2 -SSLv3
+        SSLHonorCipherOrder On
+
+        Header always set X-Frame-Options DENY
+        Header always set X-Content-Type-Options nosniff
+
+        SSLCompression off
+        SSLSessionTickets Off
+        SSLUseStapling on
+        SSLStaplingCache "shmcb:logs/stapling-cache(150000)"
+        
+Then
+        
+        $ sudo vim  /etc/apache2/sites-available/default-ssl.conf
+        
+Note: from this you can make a copy,I didn't do because there is only few things what I m gonna modify, but in genereal you should make a backup from this file.
+        
+Now that you opened the file, place this after ```<VirtualHost _default_:443>```
+        
+        ServerAdmin root@debian.ghorvath
+        ServerName <your VM IP>
+      
+Scroll a bit downer and place this two after ```SSLEngine on```
+        
+        SSLCertificateFile        /etc/ssl/certs/apache-selfsigned.crt
+        SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+        
+Then scroll a bit down and palce this after ```SSLOptions +StdEnvVars```
+        
+         BrowserMatch "MSIE [2-6]" \
+                  nokeepalive ssl-unclean-shutdown \
+                  downgrade-1.0 force-response-1.0
+        
+Save it and open:
+        
+        $ sudo nano /etc/apache2/sites-available/000-default.conf
+        
+Add:
+        
+        Redirect "/" "https://vm_ip_adress/"
+        
+Now we enable all the chnages in apache2 service to activate the SSL certification as well:
+        
+       $ sudo a2enmod ssl
+       $ sudo a2enmod headers
+       $ sudo a2ensite default-ssl
+       $ sudo a2enconf ssl-params
+       $ sudo apache2ctl configtest
+       $ sudo systemctl restart apache2
+     
+[Useful link1](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04)
+[Useful link2](https://stackoverflow.com/questions/51537084/i-installed-apache-2-but-in-sudo-ufw-app-list-there-is-no-apache-applications-in)
+[Useful link3]()
         
 ## Finally
         
