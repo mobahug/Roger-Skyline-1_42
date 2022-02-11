@@ -54,6 +54,7 @@ Go to root:
 
 log back to you user and give acces (writible) to ´/etc/sudoers file, because we need to still
 initialize the user to be able to make all kind of changes.
+    
     $ /etc
     $ sudo chmod +w sudoers
     $ sudo vim sudoers
@@ -550,11 +551,13 @@ after that save the long code what you got to a textfile or something to store i
         051ab4f5dce7ef5d0c94f66dea7d072cb51f99c6
                              
                              
-Useful tipp: if you can't log back got to:
+Useful tipp: if you can't log back (on your computer to VM) then open your VM and go to:
             
           $ sudo nano /etc/hosts.deny
             
-Delete your IP adress, then go to:
+Delete your IP adress
+            
+then go to:
             
           $ sudo nano /etc/hosts.allow
             
