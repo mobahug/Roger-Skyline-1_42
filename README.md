@@ -270,7 +270,7 @@ now you make sure everything is setted up so:
     However in the configuration file there is a very good explanation for everything, and i made changes accordingly what I am not explain here now.
     
     
-    
+So I used first portsentry, which is a good tool but might be will interference for you as well as for me and behave unexpectedly.
     
     $ sudo apt install portsentry
     
