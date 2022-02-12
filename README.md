@@ -260,12 +260,15 @@ now you make sure everything is setted up so:
     
 ## You have to set a protection against scans on your VM’s open ports.
     
-    Small update here:
+Small update here:
     
-    After realising the portsentry service interferencing the firewall, I deleted, [here you can check how to delete completely a service](https://installlion.com/ubuntu/vivid/universe/p/portsentry/uninstall/index.html).
+    After realising the portsentry service interferencing the firewall, I deleted, 
+    
+ [here you can check how to delete completely a service](https://installlion.com/ubuntu/vivid/universe/p/portsentry/uninstall/index.html).
+    
     Instead of that I installed another ports scan security service ***psad***.
     
-    [here is a small guide how to set up basic stuff on it](https://www.unixmen.com/how-to-block-port-scan-attacks-with-psad-on-ubuntu-debian/)
+ [here is a small guide how to set up basic stuff on it](https://www.unixmen.com/how-to-block-port-scan-attacks-with-psad-on-ubuntu-debian/)
     
     However in the configuration file there is a very good explanation for everything, and i made changes accordingly what I am not explain here now.
     
