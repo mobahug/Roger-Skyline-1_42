@@ -364,11 +364,10 @@ then:
     sudo chmod 777 /home/magic/cron_md5
     m1="$(md5sum '/etc/crontab' | awk '{print $1}')"
     m2="$(cat '/home/magic/cron_md5')"
-    echo ${m1}
-    echo ${m2}
+    
     if [ "$m1 != $m2" ] ; then
         md5sum /etc/crontabs | awk '{print $1}' > /home/magic/cron_md5
-        echo "KO" | mail -s "Cronfile updated" root@debian.lan
+        echo "Cronfile has been modified!" | mail -s "Cronfile updated" root
     fi
     
     now that we have our scripts we also have to tell that for ***cron*** to do it:
