@@ -268,7 +268,7 @@ Small update here:
     
  [here you can check how to delete completely a service](https://installlion.com/ubuntu/vivid/universe/p/portsentry/uninstall/index.html).
     
-    Instead of that I installed another ports scan security service ***psad***.
+    Instead of that I installed another ports scan security service PSAD.
     
  [here is a small guide how to set up basic stuff on it](https://www.unixmen.com/how-to-block-port-scan-attacks-with-psad-on-ubuntu-debian/)
     
