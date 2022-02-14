@@ -241,9 +241,11 @@ This gonna be our filter, which will filter out the attacks, so via this keep th
 
 Add:
     
+    # Fail2Ban configuration file
+    
     [Definition]
     
-    failregex = ^ -.*GET
+    failregex = ^<HOST> -.*"(GET|POST).*
     ignoreregex =
     
  [For more detail check out this](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
@@ -259,6 +261,21 @@ now you make sure everything is setted up so:
     $ sudo fail2ban-client status
     
 ## You have to set a protection against scans on your VM’s open ports.
+    
+Small update here:
+    
+    After realising the portsentry service interferencing the firewall, I deleted, 
+    
+ [here you can check how to delete completely a service](https://installlion.com/ubuntu/vivid/universe/p/portsentry/uninstall/index.html).
+    
+    Instead of that I installed another ports scan security service PSAD.
+    
+ [here is a small guide how to set up basic stuff on it](https://www.unixmen.com/how-to-block-port-scan-attacks-with-psad-on-ubuntu-debian/)
+    
+    However in the configuration file there is a very good explanation for everything, and i made changes accordingly what I am not explain here now.
+    
+    
+So I used first portsentry, which is a good tool but might be will interference for you as well as for me and behave unexpectedly.
     
     $ sudo apt install portsentry
     
@@ -349,11 +366,10 @@ then:
     sudo chmod 777 /home/magic/cron_md5
     m1="$(md5sum '/etc/crontab' | awk '{print $1}')"
     m2="$(cat '/home/magic/cron_md5')"
-    echo ${m1}
-    echo ${m2}
+    
     if [ "$m1 != $m2" ] ; then
         md5sum /etc/crontabs | awk '{print $1}' > /home/magic/cron_md5
-        echo "KO" | mail -s "Cronfile updated" root@debian.lan
+        echo "Cronfile has been modified!" | mail -s "Cronfile updated" root
     fi
     
     now that we have our scripts we also have to tell that for ***cron*** to do it:
