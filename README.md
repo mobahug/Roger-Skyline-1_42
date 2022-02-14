@@ -241,9 +241,11 @@ This gonna be our filter, which will filter out the attacks, so via this keep th
 
 Add:
     
+    # Fail2Ban configuration file
+    
     [Definition]
     
-    failregex = ^ -.*GET
+    failregex = ^<HOST> -.*"(GET|POST).*
     ignoreregex =
     
  [For more detail check out this](https://serverfault.com/questions/725936/fail2ban-regex-filter-doesnt-work-with-nginx-log-files)
