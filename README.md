@@ -218,7 +218,7 @@ adding more rules:
 [Check out for more details](https://www.tothenew.com/blog/fail2ban-port-80-to-protect-sites-from-dos-attacks/)
     
 Now we write rules to protect port 80 (http) (our future website from dos attacks)
-search for ```zoneminder````
+search for ```HTTP```
 
 add: 
     
